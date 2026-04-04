@@ -364,14 +364,37 @@ body {
   justify-content: center;
   overflow: hidden;
   padding-top: var(--hh);
-  background: var(--bg);
+  background-color: var(--bg-tint);
+  /* Abstract future / vision / achievement art — replace images/hero-bg.svg if needed */
+  background-image: url('images/hero-bg.svg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
 }
 
-/* Soft gradient orbs */
+/* Light wash so headline and proof strip stay readable over the graphic */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    165deg,
+    rgba(255,255,255,0.78) 0%,
+    rgba(255,255,255,0.42) 42%,
+    rgba(245,248,255,0.55) 68%,
+    rgba(255,255,255,0.72) 100%
+  );
+}
+
+/* Soft gradient orbs — layered under wash, slightly muted vs. art */
 .orb {
   position: absolute;
+  z-index: 0;
   border-radius: 50%;
   pointer-events: none;
+  opacity: 0.75;
 }
 .orb-1 {
   width: 700px;
@@ -390,6 +413,8 @@ body {
 
 /* Hero content */
 .hero .container {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1268,6 +1293,267 @@ body {
 
 
 /* ─────────────────────────────────────────
+   14b. INTERNSHIPS & SCHOLARSHIPS  (path accordions — not competition UI)
+───────────────────────────────────────── */
+.ach-path-section {
+  padding: var(--sec) 0;
+  position: relative;
+}
+
+/* Nested under .achievements: spacing + contained gradient bands (horizontal: container only) */
+.achievements .ach-path-section {
+  padding: clamp(40px, 5vw, 80px) 0 clamp(28px, 4vw, 48px);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+}
+.achievements .ach-path--comp {
+  margin-top: clamp(12px, 2.5vw, 28px);
+}
+.achievements .ach-path--intern {
+  margin-top: clamp(8px, 2vw, 16px);
+}
+.achievements .ach-path--scholar {
+  padding-bottom: 0;
+  margin-top: clamp(20px, 3vw, 36px);
+}
+
+/* Competitions band — blue/indigo (matches competition toggles) */
+.ach-path--comp {
+  background: linear-gradient(180deg, rgba(30,58,138,0.22) 0%, #070E1B 40%, #0B1124 100%);
+}
+.ach-path--comp::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 85% 55% at 50% -8%, rgba(99,102,241,0.14) 0%, transparent 52%);
+}
+
+.ach-path--intern {
+  background: linear-gradient(180deg, #0B1224 0%, #070E1B 42%, #0F172A 100%);
+}
+.ach-path--intern::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 85% 55% at 15% -5%, rgba(245,158,11,0.09) 0%, transparent 52%);
+}
+
+.ach-path--scholar {
+  background: linear-gradient(180deg, #0F172A 0%, #070E1B 48%, #0c1024 100%);
+}
+.ach-path--scholar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 75% 50% at 88% 0%, rgba(167,139,250,0.1) 0%, transparent 55%);
+}
+
+/* Content above path ::before washes (no inner .container on path blocks) */
+.ach-path--comp::before,
+.ach-path--intern::before,
+.ach-path--scholar::before {
+  z-index: 0;
+}
+.ach-path-section > .sec-head,
+.ach-path-section > .ach-sub-accord,
+.ach-path-section > .ach-comp-accord {
+  position: relative;
+  z-index: 1;
+}
+
+
+.ach-sub-accord {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ach-sub-group {
+  background: rgba(255,255,255,0.045);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  transition: box-shadow var(--ease-slow), border-color var(--ease-slow);
+}
+
+.ach-path--intern .ach-sub-group::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, #B45309 0%, #F59E0B 38%, #FBBF24 72%, #D97706 100%);
+}
+.ach-path--intern .ach-sub-group.is-open {
+  border-color: rgba(245,158,11,0.22);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.28), 0 0 0 1px rgba(245,158,11,0.07);
+}
+
+.ach-path--scholar .ach-sub-group::before {
+  content: '';
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 5%, rgba(148,163,184,0.45) 22%, #A78BFA 50%, rgba(148,163,184,0.4) 78%, transparent 95%);
+}
+.ach-path--scholar .ach-sub-group.is-open {
+  border-color: rgba(167,139,250,0.24);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.26), 0 0 0 1px rgba(167,139,250,0.09);
+}
+
+.ach-sub-toggle {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 22px 26px;
+  margin: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, transparent 52%);
+  border: none;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+  transition: background var(--ease), border-color var(--ease);
+}
+.ach-sub-toggle:hover {
+  background: linear-gradient(180deg, rgba(255,255,255,0.075) 0%, rgba(255,255,255,0.02) 52%);
+}
+.ach-sub-toggle:focus-visible {
+  outline: 2px solid rgba(147,197,253,0.95);
+  outline-offset: 3px;
+}
+.ach-sub-toggle[aria-expanded="true"] {
+  border-bottom-color: var(--border-dark);
+}
+.ach-path--intern .ach-sub-toggle[aria-expanded="true"] {
+  background: linear-gradient(180deg, rgba(245,158,11,0.11) 0%, rgba(255,255,255,0.02) 100%);
+}
+.ach-path--scholar .ach-sub-toggle[aria-expanded="true"] {
+  background: linear-gradient(180deg, rgba(129,140,248,0.14) 0%, rgba(255,255,255,0.02) 100%);
+}
+
+.ach-sub-head {
+  flex: 1;
+  min-width: 0;
+}
+.ach-sub-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 11px;
+}
+
+.ach-sub-name {
+  font-size: clamp(1.12rem, 2.3vw, 1.42rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.18;
+  color: var(--white);
+}
+
+/* Internships: editorial left rule (no filled box) */
+.ach-path--intern .ach-sub-desc {
+  margin: 0;
+  max-width: min(100%, 58rem);
+  padding: 2px 0 2px 18px;
+  border-left: 3px solid rgba(251,191,36,0.5);
+  font-size: 0.9rem;
+  line-height: 1.58;
+  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+}
+
+/* Scholarships: soft rounded “capsule” panel */
+.ach-path--scholar .ach-sub-desc {
+  margin: 0;
+  max-width: min(100%, 58rem);
+  padding: 13px 20px;
+  border-radius: var(--r-xl);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  font-weight: 400;
+  color: rgba(255,255,255,0.56);
+  background: rgba(99,102,241,0.11);
+  border: 1px solid rgba(167,139,250,0.24);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.ach-sub-chev-wrap {
+  flex-shrink: 0;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--ease), border-color var(--ease), box-shadow var(--ease);
+}
+
+/* Intern: square-rounded control (gold) */
+.ach-path--intern .ach-sub-chev-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(245,158,11,0.11);
+  border: 1px solid rgba(251,191,36,0.3);
+}
+.ach-path--intern .ach-sub-toggle:hover .ach-sub-chev-wrap {
+  background: rgba(245,158,11,0.17);
+  border-color: rgba(253,224,71,0.42);
+}
+.ach-path--intern .ach-sub-group.is-open .ach-sub-toggle .ach-sub-chev-wrap {
+  background: rgba(245,158,11,0.22);
+  border-color: rgba(253,224,71,0.48);
+}
+
+/* Scholar: circular control (violet) */
+.ach-path--scholar .ach-sub-chev-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(99,102,241,0.13);
+  border: 1px solid rgba(196,181,253,0.34);
+  box-shadow: 0 0 24px rgba(139,92,246,0.1);
+}
+.ach-path--scholar .ach-sub-toggle:hover .ach-sub-chev-wrap {
+  background: rgba(99,102,241,0.19);
+  border-color: rgba(196,181,253,0.48);
+}
+.ach-path--scholar .ach-sub-group.is-open .ach-sub-toggle .ach-sub-chev-wrap {
+  background: rgba(129,140,248,0.24);
+  border-color: rgba(221,214,254,0.42);
+}
+
+.ach-sub-chev {
+  color: rgba(255,255,255,0.74);
+  transition: transform var(--ease);
+}
+.ach-sub-toggle[aria-expanded="true"] .ach-sub-chev {
+  transform: rotate(180deg);
+}
+
+.ach-sub-panel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.48s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.28s ease;
+}
+.ach-sub-panel.open {
+  max-height: 4000px;
+  opacity: 1;
+}
+.ach-sub-panel .aw-grid {
+  padding: 0 16px 28px;
+}
+@media (min-width: 769px) {
+  .ach-sub-panel .aw-grid {
+    padding: 12px 24px 32px;
+  }
+}
+
+
+/* ─────────────────────────────────────────
    15. ALUMNI  (year accordion + composite image cards)
 ───────────────────────────────────────── */
 .alumni {
@@ -1812,6 +2098,14 @@ body {
   .ach-comp-chev-wrap { width: 42px; height: 42px; }
   .ach-comp-panel .aw-grid { padding: 0 14px 22px; }
 
+  .ach-sub-toggle { padding: 18px 18px; gap: 14px; }
+  .ach-sub-main { gap: 9px; }
+  .ach-path--intern .ach-sub-desc { padding-left: 14px; font-size: 0.86rem; }
+  .ach-path--scholar .ach-sub-desc { padding: 11px 16px; font-size: 0.84rem; }
+  .ach-sub-panel .aw-grid { padding: 0 14px 22px; }
+  .ach-path--intern .ach-sub-chev-wrap,
+  .ach-path--scholar .ach-sub-chev-wrap { width: 42px; height: 42px; }
+
   /* Alumni accordion */
   .alm-toggle { padding: 16px 20px; }
   .alm-grid   { grid-template-columns: repeat(2, 1fr); padding: 16px 20px 20px; }
@@ -1866,4 +2160,11 @@ body {
   .ach-comp-name { font-size: 1.05rem; }
   .ach-comp-desc { padding: 10px 12px; font-size: 0.78rem; line-height: 1.52; }
   .ach-comp-chev-wrap { width: 40px; height: 40px; }
+
+  .ach-sub-name { font-size: 1.05rem; }
+  .ach-sub-toggle { padding: 16px 14px; gap: 10px; }
+  .ach-path--intern .ach-sub-desc { font-size: 0.8rem; padding-left: 12px; border-left-width: 2px; }
+  .ach-path--scholar .ach-sub-desc { font-size: 0.78rem; padding: 10px 14px; }
+  .ach-path--intern .ach-sub-chev-wrap,
+  .ach-path--scholar .ach-sub-chev-wrap { width: 40px; height: 40px; }
 }

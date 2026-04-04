@@ -365,7 +365,7 @@
 
 
   /* ─────────────────────────────────────────
-     DISCLOSURE TOGGLES  (alumni · achievements by competition)
+     DISCLOSURE TOGGLES  (alumni · competitions · internships · scholarships)
   ───────────────────────────────────────── */
   function bindDisclosureToggle (toggleSel, groupSel) {
     $$(toggleSel).forEach(toggle => {
@@ -386,6 +386,7 @@
 
   bindDisclosureToggle('.alm-toggle', '.alm-group');
   bindDisclosureToggle('.ach-comp-toggle', '.ach-comp-group');
+  bindDisclosureToggle('.ach-sub-toggle', '.ach-sub-group');
 
 
   /* ─────────────────────────────────────────
