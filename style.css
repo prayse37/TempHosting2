@@ -954,7 +954,7 @@ body {
   background: var(--dark);
 }
 
-/* Stats mini-strip */
+/* Stats mini-strip — one row, four equal columns */
 .aw-stats {
   display: flex;
   align-items: center;
@@ -963,30 +963,37 @@ body {
   background: rgba(255,255,255,0.05);
   border: 1px solid var(--border-dark);
   border-radius: var(--r-xl);
-  padding: 24px 40px;
+  padding: 24px clamp(12px, 2.5vw, 32px);
   margin-bottom: clamp(40px, 5vw, 64px);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  width: 100%;
+  max-width: 100%;
 }
 .aw-stat {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  padding: 0 36px;
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0 clamp(6px, 1.2vw, 18px);
   text-align: center;
 }
 .aw-stat strong {
-  font-size: 1.65rem;
+  font-size: clamp(0.95rem, 2vw, 1.45rem);
   font-weight: 900;
   letter-spacing: -0.04em;
   color: var(--white);
-  line-height: 1;
+  line-height: 1.1;
+  max-width: 100%;
 }
 .aw-stat span {
-  font-size: 0.75rem;
+  font-size: clamp(0.58rem, 1.15vw, 0.75rem);
   font-weight: 500;
   color: rgba(255,255,255,0.45);
-  white-space: nowrap;
+  line-height: 1.25;
+  max-width: 100%;
+  white-space: normal;
 }
 .aw-stat-sep {
   width: 1px;
@@ -1106,6 +1113,157 @@ body {
   color: rgba(255,255,255,0.55);
   line-height: 1.65;
   flex: 1;
+}
+
+/* Achievement grids grouped by competition (expand/collapse) */
+.ach-comp-accord {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ach-comp-group {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  transition: box-shadow var(--ease-slow);
+}
+.ach-comp-group.is-open {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.22);
+}
+.ach-comp-group.is-open .ach-comp-accent {
+  box-shadow: 0 0 20px rgba(99,102,241,0.28);
+}
+
+.ach-comp-toggle {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  gap: 18px;
+  padding: 24px 28px;
+  margin: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 48%);
+  border: none;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+  transition: background var(--ease), border-color var(--ease);
+}
+.ach-comp-toggle:hover {
+  background: linear-gradient(180deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 52%);
+}
+.ach-comp-toggle:focus-visible {
+  outline: 2px solid rgba(147,197,253,0.95);
+  outline-offset: 3px;
+}
+.ach-comp-toggle[aria-expanded="true"] {
+  border-bottom-color: var(--border-dark);
+  background: linear-gradient(180deg, rgba(29,78,216,0.12) 0%, rgba(255,255,255,0.02) 100%);
+}
+
+.ach-comp-head {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+}
+
+/* Vertical accent — ties the block to STEMPIA blues */
+.ach-comp-accent {
+  width: 4px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #818CF8 0%, #1D4ED8 45%, rgba(29,78,216,0.25) 100%);
+  transition: box-shadow var(--ease-slow);
+}
+
+.ach-comp-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding-left: 20px;
+}
+
+.ach-comp-name {
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  color: var(--white);
+}
+
+/* Inset “card” for description — readable, distinct from title */
+.ach-comp-desc {
+  display: block;
+  margin: 0;
+  width: 100%;
+  max-width: min(100%, 56rem);
+  padding: 14px 18px;
+  border-radius: var(--r-md);
+  font-size: 0.895rem;
+  font-weight: 400;
+  line-height: 1.58;
+  color: rgba(255,255,255,0.58);
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.ach-comp-chev-wrap {
+  align-self: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: background var(--ease), border-color var(--ease), transform var(--ease);
+}
+.ach-comp-toggle:hover .ach-comp-chev-wrap {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.18);
+}
+.ach-comp-group.is-open .ach-comp-toggle .ach-comp-chev-wrap {
+  background: rgba(29,78,216,0.22);
+  border-color: rgba(129,140,248,0.35);
+}
+
+.ach-comp-chev {
+  flex-shrink: 0;
+  color: rgba(255,255,255,0.7);
+  transition: transform var(--ease);
+}
+.ach-comp-toggle[aria-expanded="true"] .ach-comp-chev {
+  transform: rotate(180deg);
+}
+.ach-comp-panel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.48s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity    0.28s ease;
+}
+.ach-comp-panel.open {
+  max-height: 4000px;
+  opacity: 1;
+}
+.ach-comp-panel .aw-grid {
+  padding: 0 16px 28px;
+}
+@media (min-width: 769px) {
+  .ach-comp-panel .aw-grid {
+    padding: 12px 24px 32px;
+  }
 }
 
 
@@ -1644,9 +1802,15 @@ body {
 
   /* Achievements (Internship & Scholarship) */
   .aw-grid  { grid-template-columns: 1fr; }
-  .aw-stats { padding: 20px 16px; }
-  .aw-stat  { padding: 8px 20px; }
+  .aw-stats { padding: 18px 10px; flex-wrap: nowrap; }
+  .aw-stat  { padding: 8px 4px; }
   .aw-stat-sep { display: none; }
+
+  .ach-comp-toggle { padding: 20px 18px; gap: 14px; }
+  .ach-comp-main { padding-left: 14px; gap: 10px; }
+  .ach-comp-desc { padding: 12px 14px; font-size: 0.84rem; }
+  .ach-comp-chev-wrap { width: 42px; height: 42px; }
+  .ach-comp-panel .aw-grid { padding: 0 14px 22px; }
 
   /* Alumni accordion */
   .alm-toggle { padding: 16px 20px; }
@@ -1695,4 +1859,11 @@ body {
   .alm-body  { padding: 12px 12px 14px; }
   .alm-toggle { padding: 14px 16px; }
   .alm-yr    { font-size: 0.95rem; }
+
+  .ach-comp-toggle { padding: 16px 14px; gap: 10px; }
+  .ach-comp-accent { width: 3px; border-radius: 3px; }
+  .ach-comp-main { padding-left: 12px; gap: 8px; }
+  .ach-comp-name { font-size: 1.05rem; }
+  .ach-comp-desc { padding: 10px 12px; font-size: 0.78rem; line-height: 1.52; }
+  .ach-comp-chev-wrap { width: 40px; height: 40px; }
 }

@@ -2,7 +2,7 @@
    STEMPIA — script.js
    Handles: sticky header · mobile nav · scroll
             reveal · active nav link · stat
-            counters · success carousel · alumni accordion · form validation
+            counters · success carousel · alumni & achievements accordions · form validation
 ═══════════════════════════════════════════════ */
 
 (function () {
@@ -365,22 +365,27 @@
 
 
   /* ─────────────────────────────────────────
-     ALUMNI YEAR ACCORDION
+     DISCLOSURE TOGGLES  (alumni · achievements by competition)
   ───────────────────────────────────────── */
-  $$('.alm-toggle').forEach(toggle => {
-    toggle.addEventListener('click', () => {
-      const panelId = toggle.getAttribute('aria-controls');
-      const panel   = document.getElementById(panelId);
-      const group   = toggle.closest('.alm-group');
-      if (!panel || !group) return;
+  function bindDisclosureToggle (toggleSel, groupSel) {
+    $$(toggleSel).forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const panelId = toggle.getAttribute('aria-controls');
+        const panel   = document.getElementById(panelId);
+        const group   = toggle.closest(groupSel);
+        if (!panel || !group) return;
 
-      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
 
-      toggle.setAttribute('aria-expanded', String(!isOpen));
-      panel.classList.toggle('open', !isOpen);
-      group.classList.toggle('is-open', !isOpen);
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+        panel.classList.toggle('open', !isOpen);
+        group.classList.toggle('is-open', !isOpen);
+      });
     });
-  });
+  }
+
+  bindDisclosureToggle('.alm-toggle', '.alm-group');
+  bindDisclosureToggle('.ach-comp-toggle', '.ach-comp-group');
 
 
   /* ─────────────────────────────────────────
