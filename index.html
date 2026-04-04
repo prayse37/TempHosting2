@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STEMPIA Computer Institute — Real Skills. Real Results.</title>
+  <meta name="description" content="STEMPIA helps students build strong computer science profiles through programming, competitions, projects, and mentorship." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ─────────────────────────────────────────
+       HEADER
+  ───────────────────────────────────────── -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="#home" class="logo" aria-label="STEMPIA Home">STEMPIA</a>
+
+      <nav class="nav" id="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#alumni">Alumni</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="#contact" class="btn btn-blue nav-cta">Request Info</a>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ─────────────────────────────────────────
+         HERO
+    ───────────────────────────────────────── -->
+    <section class="hero" id="home">
+      <div class="orb orb-1" aria-hidden="true"></div>
+      <div class="orb orb-2" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="hero-body reveal">
+          <p class="kicker">STEMPIA Computer Institute</p>
+
+          <h1>
+            Where Future Computer<br>
+            Scientists Build<br>
+            <em>Their Edge</em>
+          </h1>
+
+          <p class="hero-sub">
+            Programming, competitions, mentorship, and projects—<br>
+            all pointed toward one goal: your student's future.
+          </p>
+
+          <div class="hero-btns">
+            <a href="#contact" class="btn btn-blue btn-lg">Request Information</a>
+            <a href="#results" class="btn btn-ghost btn-lg">See Student Results</a>
+          </div>
+        </div>
+
+        <!-- Quick proof strip — sits just above the fold break -->
+        <div class="hero-proof reveal r-delay-1">
+          <div class="proof-item"><strong>200+</strong><span>Competition Awards</span></div>
+          <div class="proof-sep" aria-hidden="true"></div>
+          <div class="proof-item"><strong>250+</strong><span>Certifications Earned</span></div>
+          <div class="proof-sep" aria-hidden="true"></div>
+          <div class="proof-item"><strong>10+</strong><span>Years Guiding Students</span></div>
+          <div class="proof-sep" aria-hidden="true"></div>
+          <div class="proof-item"><strong>Top</strong><span>University Outcomes</span></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────
+         STATS  (dark section)
+    ───────────────────────────────────────── -->
+    <section class="stats" id="results" aria-label="Key statistics">
+      <div class="container">
+        <div class="stats-row reveal">
+
+          <!-- REPLACE: Update each number with verified data before launch -->
+          <div class="stat">
+            <div class="stat-n" data-count="200" data-suffix="+">200+</div>
+            <p>Competition Awards</p>
+          </div>
+          <div class="stat-sep" aria-hidden="true"></div>
+
+          <div class="stat">
+            <div class="stat-n" data-count="250" data-suffix="+">250+</div>
+            <p>Certifications Earned</p>
+          </div>
+          <div class="stat-sep" aria-hidden="true"></div>
+
+          <div class="stat">
+            <div class="stat-n" data-count="20" data-suffix="+">20+</div>
+            <p>Internship Experiences</p>
+          </div>
+          <div class="stat-sep" aria-hidden="true"></div>
+
+          <div class="stat">
+            <div class="stat-n" data-count="10" data-suffix="+">10+</div>
+            <p>Years of Student Growth</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────
+         STUDENT SUCCESS STORIES
+    ───────────────────────────────────────── -->
+    <section class="success" id="success" aria-label="Student success stories">
+      <div class="container">
+
+        <header class="sec-head reveal">
+          <span class="eyebrow">Student Outcomes</span>
+          <h2>Stories of Students<br>Who Built Something Real</h2>
+        </header>
+
+        <!-- CAROUSEL — add/remove .sc cards freely; JS rebuilds dots/nav automatically -->
+        <div class="sc-carousel reveal">
+
+          <!-- Top bar: slide counter + prev/next buttons -->
+          <div class="sc-header">
+            <p class="sc-counter" aria-live="polite" aria-atomic="true">
+              <span class="sc-curr">1</span> <span class="sc-sep">/</span> <span class="sc-total">5</span>
+            </p>
+            <div class="sc-nav" role="group" aria-label="Slide navigation">
+              <button class="sc-btn sc-btn-prev" aria-label="Previous slide" disabled>
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                  <path d="M11 4L6 9l5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <button class="sc-btn sc-btn-next" aria-label="Next slide">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                  <path d="M7 4l5 5-5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Cards track (all cards sit here as a horizontal strip) -->
+          <div class="sc-track-wrap">
+            <div class="sc-track">
+
+              <!-- Card 1 — REPLACE: photo, name, achievement, quote -->
+              <article class="sc">
+                <div class="sc-img">
+                  <!-- REPLACE: <img src="photos/student-1.jpg" alt="Student Name" /> -->
+                  <div class="ph ph-cool" role="img" aria-label="Student photo placeholder"><span>Student Photo</span></div>
+                </div>
+                <div class="sc-body">
+                  <blockquote>"STEMPIA helped me turn interest into direction."</blockquote>
+                  <div class="sc-outcome">
+                    <!-- REPLACE: real university -->
+                    <span class="chip chip-blue">Admitted to a Top University</span>
+                  </div>
+                  <footer class="sc-foot">
+                    <!-- REPLACE: name and track -->
+                    <strong>Student Name</strong>
+                    <span>Advanced Development · Class of 20XX</span>
+                  </footer>
+                </div>
+              </article>
+
+              <!-- Card 2 – dark featured — REPLACE: photo, name, achievement, quote -->
+              <article class="sc sc-dark">
+                <div class="sc-img">
+                  <!-- REPLACE: <img src="photos/student-2.jpg" alt="Student Name" /> -->
+                  <div class="ph ph-mid" role="img" aria-label="Student photo placeholder"><span>Student Photo</span></div>
+                </div>
+                <div class="sc-body">
+                  <blockquote>"I learned how to challenge myself with purpose."</blockquote>
+                  <div class="sc-outcome">
+                    <!-- REPLACE: real achievement -->
+                    <span class="chip chip-light">Multiple Competition Awards</span>
+                  </div>
+                  <footer class="sc-foot">
+                    <!-- REPLACE: name and track -->
+                    <strong>Student Name</strong>
+                    <span>Competitions &amp; AP Prep · Class of 20XX</span>
+                  </footer>
+                </div>
+              </article>
+
+              <!-- Card 3 — REPLACE: photo, name, achievement, quote -->
+              <article class="sc">
+                <div class="sc-img">
+                  <!-- REPLACE: <img src="photos/student-3.jpg" alt="Student Name" /> -->
+                  <div class="ph ph-warm" role="img" aria-label="Student photo placeholder"><span>Student Photo</span></div>
+                </div>
+                <div class="sc-body">
+                  <blockquote>"This program gave me both skill and momentum."</blockquote>
+                  <div class="sc-outcome">
+                    <!-- REPLACE: real achievement -->
+                    <span class="chip chip-blue">Built a Strong CS Portfolio</span>
+                  </div>
+                  <footer class="sc-foot">
+                    <!-- REPLACE: name and track -->
+                    <strong>Student Name</strong>
+                    <span>Foundations &amp; Portfolio · Class of 20XX</span>
+                  </footer>
+                </div>
+              </article>
+
+              <!-- Card 4 (new) — REPLACE: photo, name, achievement, quote -->
+              <article class="sc">
+                <div class="sc-img">
+                  <!-- REPLACE: <img src="photos/student-4.jpg" alt="Student Name" /> -->
+                  <div class="ph ph-blue" role="img" aria-label="Student photo placeholder"><span>Student Photo</span></div>
+                </div>
+                <div class="sc-body">
+                  <blockquote>"I never imagined I'd place nationally — STEMPIA made it possible."</blockquote>
+                  <div class="sc-outcome">
+                    <!-- REPLACE: real achievement -->
+                    <span class="chip chip-blue">National Competition Finalist</span>
+                  </div>
+                  <footer class="sc-foot">
+                    <!-- REPLACE: name and track -->
+                    <strong>Student Name</strong>
+                    <span>Advanced Development · Class of 20XX</span>
+                  </footer>
+                </div>
+              </article>
+
+              <!-- Card 5 (new) — REPLACE: photo, name, achievement, quote -->
+              <article class="sc">
+                <div class="sc-img">
+                  <!-- REPLACE: <img src="photos/student-5.jpg" alt="Student Name" /> -->
+                  <div class="ph ph-mid" role="img" aria-label="Student photo placeholder"><span>Student Photo</span></div>
+                </div>
+                <div class="sc-body">
+                  <blockquote>"STEMPIA gave me the skills and confidence to pursue real opportunities."</blockquote>
+                  <div class="sc-outcome">
+                    <!-- REPLACE: real achievement -->
+                    <span class="chip chip-blue">Internship Secured</span>
+                  </div>
+                  <footer class="sc-foot">
+                    <!-- REPLACE: name and track -->
+                    <strong>Student Name</strong>
+                    <span>Credential &amp; Enrichment · Class of 20XX</span>
+                  </footer>
+                </div>
+              </article>
+
+            </div><!-- /.sc-track -->
+          </div><!-- /.sc-track-wrap -->
+
+          <!-- Dot indicators (generated by JS) -->
+          <div class="sc-dots" role="group" aria-label="Go to slide"></div>
+
+        </div><!-- /.sc-carousel -->
+      </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────
+         PROGRAMS OVERVIEW
+    ───────────────────────────────────────── -->
+    <section class="programs" id="programs" aria-label="Program overview">
+      <div class="container">
+
+        <header class="sec-head reveal">
+          <span class="eyebrow">Structured Pathways</span>
+          <h2>A Clear Path,<br>Not Random Classes</h2>
+          <p>Every program moves students forward with intention—building skills, credentials, and confidence at every stage.</p>
+        </header>
+
+        <div class="pg-grid">
+
+          <article class="pg reveal r-delay-1">
+            <span class="pg-num" aria-hidden="true">01</span>
+            <h3>Foundations</h3>
+            <p>Python, Java, and core problem-solving for students building real confidence from day one.</p>
+            <a href="#contact" class="pg-link" aria-label="Learn more about Foundations">Learn more <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="pg pg-dark reveal r-delay-2">
+            <span class="pg-num" aria-hidden="true">02</span>
+            <div class="pg-popular">Most Popular</div>
+            <h3>Advanced Development</h3>
+            <p>C++, JavaScript, and deeper technical training for students ready to compete and build.</p>
+            <a href="#contact" class="pg-link" aria-label="Learn more about Advanced Development">Learn more <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="pg reveal r-delay-3">
+            <span class="pg-num" aria-hidden="true">03</span>
+            <h3>Academic Preparation</h3>
+            <p>AP Computer Science A and Principles support for rigorous academic distinction.</p>
+            <a href="#contact" class="pg-link" aria-label="Learn more about Academic Preparation">Learn more <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="pg reveal r-delay-4">
+            <span class="pg-num" aria-hidden="true">04</span>
+            <h3>Credential &amp; Enrichment</h3>
+            <p>Certification prep, portfolio projects, and mentorship for long-term profile building.</p>
+            <a href="#contact" class="pg-link" aria-label="Learn more about Credential and Enrichment">Learn more <span aria-hidden="true">→</span></a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────
+         COMPETITIONS  (dark section)
+    ───────────────────────────────────────── -->
+    <section class="competitions" id="competitions" aria-label="Competition achievements">
+      <div class="container">
+
+        <header class="sec-head sec-head-light reveal">
+          <span class="eyebrow eyebrow-light">Beyond the Classroom</span>
+          <h2>Learning That<br>Leads to Recognition</h2>
+          <p>Students apply their skills through competitions, challenges, and events that build real records of achievement.</p>
+        </header>
+
+        <div class="cg-grid">
+
+          <!-- REPLACE: Update competition names and result badges with real data -->
+          <article class="cg reveal r-delay-1">
+            <div class="cg-icon" aria-hidden="true">💻</div>
+            <h3>Coding Competitions</h3>
+            <p>Algorithmic challenges at local, regional, and national levels.</p>
+            <span class="chip chip-gold">Multiple Award Winners</span>
+          </article>
+
+          <article class="cg reveal r-delay-2">
+            <div class="cg-icon" aria-hidden="true">🤖</div>
+            <h3>Robotics Challenges</h3>
+            <p>Team competitions combining engineering, programming, and creative problem solving.</p>
+            <span class="chip chip-silver">Regional Finalists</span>
+          </article>
+
+          <article class="cg reveal r-delay-3">
+            <div class="cg-icon" aria-hidden="true">📱</div>
+            <h3>App Development</h3>
+            <p>Students design and build real applications presented to industry professionals.</p>
+            <span class="chip chip-gold">Top Presentations</span>
+          </article>
+
+          <article class="cg reveal r-delay-4">
+            <div class="cg-icon" aria-hidden="true">🔐</div>
+            <h3>Cybersecurity Events</h3>
+            <p>Capture-the-flag challenges that develop critical thinking and specialized skills.</p>
+            <span class="chip chip-silver">Honorable Mentions</span>
+          </article>
+
+          <article class="cg reveal r-delay-5">
+            <div class="cg-icon" aria-hidden="true">🧮</div>
+            <h3>Math &amp; Logic</h3>
+            <p>MATHCOUNTS, AMC, and analytical competitions where precision earns recognition.</p>
+            <span class="chip chip-gold">Top Rankings Earned</span>
+          </article>
+
+          <article class="cg cg-cta reveal r-delay-6">
+            <h3>Your student's<br>next achievement</h3>
+            <p>Competition readiness is built into every program from day one.</p>
+            <a href="#contact" class="btn btn-white">Get Started</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────
+         TESTIMONIALS
+    ───────────────────────────────────────── -->
+    <section class="testimonials" id="testimonials" aria-label="Family testimonials">
+      <div class="container">
+
+        <header class="sec-head reveal">
+          <span class="eyebrow">What Families Say</span>
+          <h2>Voices from<br>Our Community</h2>
+        </header>
+
+        <div class="tl-grid">
+
+          <!-- REPLACE: Replace all testimonials with real quotes, names, and roles -->
+          <article class="tl reveal r-delay-1">
+            <div class="tl-mark" aria-hidden="true">&ldquo;</div>
+            <blockquote>The program gave my child not only technical skills, but confidence and a clearer sense of direction.</blockquote>
+            <cite>Parent of 10th Grader &middot; 2 Years at STEMPIA</cite>
+          </article>
+
+          <article class="tl tl-dark reveal r-delay-2">
+            <div class="tl-mark" aria-hidden="true">&ldquo;</div>
+            <blockquote>I joined to learn coding, but I gained much more—competitions, mentorship, and the encouragement to take on challenges I never expected to try.</blockquote>
+            <cite>Student, 11th Grade &middot; Advanced Development</cite>
+          </article>
+
+          <article class="tl reveal r-delay-3">
+            <div class="tl-mark" aria-hidden="true">&ldquo;</div>
+            <blockquote>What stood out most was how intentionally STEMPIA helped students grow toward meaningful goals—not just lessons, but a real roadmap.</blockquote>
+            <cite>Parent of 9th Grader &middot; 1 Year at STEMPIA</cite>
+          </article>
+
+          <article class="tl reveal r-delay-4">
+            <div class="tl-mark" aria-hidden="true">&ldquo;</div>
+            <blockquote>My daughter came in nervous. She left the first year with a competition award. STEMPIA knows how to bring out what students are capable of.</blockquote>
+            <cite>Parent of 8th Grader &middot; 3 Years at STEMPIA</cite>
+          </article>
+
+          <article class="tl tl-dark reveal r-delay-5">
+            <div class="tl-mark" aria-hidden="true">&ldquo;</div>
+            <blockquote>They pushed me to enter competitions I wasn't sure I was ready for—and I placed. That changed how I see myself as a student and as a person.</blockquote>
+            <cite>Student, 12th Grade &middot; AP Prep &amp; Competitions</cite>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────
+         PHOTO GALLERY
+    ───────────────────────────────────────── -->
+    <section class="gallery" id="gallery" aria-label="Photo gallery">
+      <div class="container">
+
+        <header class="sec-head reveal">
+          <span class="eyebrow">Behind the Program</span>
+          <h2>A Closer Look at<br>What We Build Together</h2>
+        </header>
+
+        <!-- REPLACE: Replace every .ph element with <img src="..." alt="..." /> -->
+        <div class="gal-grid reveal">
+
+          <div class="gi gi-wide">
+            <div class="ph ph-blue"><span>Classroom in session</span></div>
+          </div>
+          <div class="gi">
+            <div class="ph ph-warm"><span>Students at competition</span></div>
+          </div>
+          <div class="gi">
+            <div class="ph ph-cool"><span>Award ceremony</span></div>
+          </div>
+
+          <div class="gi">
+            <div class="ph ph-mid"><span>Student focused on code</span></div>
+          </div>
+          <div class="gi">
+            <div class="ph ph-warm"><span>Team presentation</span></div>
+          </div>
+          <div class="gi gi-wide">
+            <div class="ph ph-blue"><span>Class group photo</span></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────
+         INTERNSHIP & SCHOLARSHIP  (dark section)
+    ───────────────────────────────────────── -->
+    <section class="achievements" id="achievements" aria-label="Internship and scholarship achievements">
+      <div class="container">
+
+        <header class="sec-head sec-head-light reveal">
+          <span class="eyebrow eyebrow-light">Internships &amp; Scholarships</span>
+          <h2>Students Who Earned<br>More Than Recognition</h2>
+          <p>Beyond awards and classes, STEMPIA students earn real-world opportunities that open doors to careers and higher education.</p>
+        </header>
+
+        <!-- Quick stats strip -->
+        <div class="aw-stats reveal r-delay-1">
+          <!-- REPLACE: Update these numbers with verified data -->
+          <div class="aw-stat"><strong>20+</strong><span>Internship Experiences</span></div>
+          <div class="aw-stat-sep" aria-hidden="true"></div>
+          <div class="aw-stat"><strong>Multiple</strong><span>Scholarship Recipients</span></div>
+          <div class="aw-stat-sep" aria-hidden="true"></div>
+          <div class="aw-stat"><strong>Top-Tier</strong><span>Companies &amp; Institutions</span></div>
+        </div>
+
+        <div class="aw-grid">
+
+          <!-- ── Internship Cards ── -->
+          <!-- REPLACE: Fill in real student name, company, role, description, and term for each card -->
+
+          <article class="aw reveal r-delay-1">
+            <div class="aw-img">
+              <!-- REPLACE: <img src="photos/intern-1.jpg" alt="Student Name" /> -->
+              <div class="ph ph-blue"><span>Student Photo</span></div>
+              <span class="aw-type chip chip-gold">Internship</span>
+            </div>
+            <div class="aw-body">
+              <h3>Student Name</h3>
+              <!-- REPLACE: Real company name -->
+              <p class="aw-org">Software Company / Tech Organization</p>
+              <!-- REPLACE: Short description of role and responsibilities -->
+              <p class="aw-desc">Contributed to real engineering projects, collaborated with professional developers, and gained hands-on industry experience.</p>
+              <!-- REPLACE: Real term and year -->
+              <span class="aw-year">Summer 20XX</span>
+            </div>
+          </article>
+
+          <article class="aw aw-featured reveal r-delay-2">
+            <div class="aw-img">
+              <!-- REPLACE: <img src="photos/intern-2.jpg" alt="Student Name" /> -->
+              <div class="ph ph-mid"><span>Student Photo</span></div>
+              <span class="aw-type chip chip-gold">Internship</span>
+            </div>
+            <div class="aw-body">
+              <h3>Student Name</h3>
+              <!-- REPLACE: Real company name -->
+              <p class="aw-org">Research Lab / University Program</p>
+              <!-- REPLACE: Short description -->
+              <p class="aw-desc">Conducted research under faculty mentorship, applied programming skills to a real-world project, and presented findings to a professional audience.</p>
+              <!-- REPLACE: Real term and year -->
+              <span class="aw-year">Fall 20XX</span>
+            </div>
+          </article>
+
+          <article class="aw reveal r-delay-3">
+            <div class="aw-img">
+              <!-- REPLACE: <img src="photos/intern-3.jpg" alt="Student Name" /> -->
+              <div class="ph ph-cool"><span>Student Photo</span></div>
+              <span class="aw-type chip chip-gold">Internship</span>
+            </div>
+            <div class="aw-body">
+              <h3>Student Name</h3>
+              <!-- REPLACE: Real company name -->
+              <p class="aw-org">Startup / Engineering Firm</p>
+              <!-- REPLACE: Short description -->
+              <p class="aw-desc">Designed and shipped product features in a real engineering environment, building both technical depth and professional confidence.</p>
+              <!-- REPLACE: Real term and year -->
+              <span class="aw-year">Summer 20XX</span>
+            </div>
+          </article>
+
+          <!-- ── Scholarship Cards ── -->
+
+          <article class="aw reveal r-delay-4">
+            <div class="aw-img">
+              <!-- REPLACE: <img src="photos/scholar-1.jpg" alt="Student Name" /> -->
+              <div class="ph ph-warm"><span>Student Photo</span></div>
+              <span class="aw-type chip chip-silver">Scholarship</span>
+            </div>
+            <div class="aw-body">
+              <h3>Student Name</h3>
+              <!-- REPLACE: Real scholarship name and awarding institution -->
+              <p class="aw-org">Scholarship Name · Institution</p>
+              <!-- REPLACE: Short description of criteria or achievement -->
+              <p class="aw-desc">Recognized for exceptional academic achievement, competition results, and demonstrated commitment to computer science and STEM fields.</p>
+              <!-- REPLACE: Real award year -->
+              <span class="aw-year">Awarded 20XX</span>
+            </div>
+          </article>
+
+          <article class="aw reveal r-delay-5">
+            <div class="aw-img">
+              <!-- REPLACE: <img src="photos/scholar-2.jpg" alt="Student Name" /> -->
+              <div class="ph ph-mid"><span>Student Photo</span></div>
+              <span class="aw-type chip chip-silver">Scholarship</span>
+            </div>
+            <div class="aw-body">
+              <h3>Student Name</h3>
+              <!-- REPLACE: Real scholarship name and awarding institution -->
+              <p class="aw-org">Merit Scholarship · University Program</p>
+              <!-- REPLACE: Short description -->
+              <p class="aw-desc">Earned merit-based recognition through a strong academic record, project portfolio, and competitive programming achievements.</p>
+              <!-- REPLACE: Real award year -->
+              <span class="aw-year">Awarded 20XX</span>
+            </div>
+          </article>
+
+          <!-- CTA card -->
+          <article class="aw aw-cta reveal r-delay-6">
+            <h3>Your student could<br>be here next</h3>
+            <p>STEMPIA students go beyond the classroom to earn internships, scholarships, and real recognition from the broader world.</p>
+            <a href="#contact" class="btn btn-white">Request Information</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────
+         ALUMNI
+    ───────────────────────────────────────── -->
+    <section class="alumni" id="alumni" aria-label="STEMPIA alumni">
+      <div class="container">
+
+        <header class="sec-head reveal">
+          <span class="eyebrow">Where STEMPIA Students Go</span>
+          <h2>Our Alumni</h2>
+          <p>A growing community of students who built real skills here — and built real futures beyond.</p>
+        </header>
+
+        <!--
+          ACCORDION: each .alm-group is one class year. JS toggles panels.
+          Each card: put a composite image (portrait + acceptances) in .alm-photo.
+          Example first card uses photos/jasonsong_org.jpg — replace others: swap .ph → <img src="photos/....jpg" alt="Name — acceptances" />
+        -->
+        <div class="alm-accord reveal">
+
+          <div class="alm-group is-open">
+            <button class="alm-toggle" aria-expanded="true" aria-controls="class-2025">
+              <span class="alm-yr">Class of 2025</span>
+              <span class="alm-ct">8 graduates</span>
+              <svg class="alm-chev" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="alm-panel open" id="class-2025" role="region" aria-label="Class of 2025">
+              <div class="alm-grid">
+                <article class="alm">
+                  <div class="alm-photo">
+                    <img src="./photos/jasonsong_orig.jpg" alt="Alumnus — universities where they were accepted" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="alm-body"><strong class="alm-name">Jayson Song</strong><p class="alm-uni">UC Berkely</p><div class="alm-tags"><span>Coding Competitions</span><span>AP CS A</span></div></div>
+                </article>
+                <article class="alm">
+                  <div class="alm-photo"><div class="ph ph-cool"></div><!-- REPLACE: composite <img> --></div>
+                  <div class="alm-body"><strong class="alm-name">Student Name</strong><p class="alm-uni">University Name</p><div class="alm-tags"><span>Research</span><span>Robotics</span></div></div>
+                </article>
+                <article class="alm">
+                  <div class="alm-photo"><div class="ph ph-warm"></div></div>
+                  <div class="alm-body"><strong class="alm-name">Student Name</strong><p class="alm-uni">University Name</p><div class="alm-tags"><span>App Development</span><span>Certification</span></div></div>
+                </article>
+                <article class="alm">
+                  <div class="alm-photo">
+                    <img src="./photos/jasonsong_orig.jpg" alt="Alumnus — universities where they were accepted" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="alm-body"><strong class="alm-name">Student Name</strong><p class="alm-uni">University Name</p><div class="alm-tags"><span>Coding Competitions</span><span>Math Olympiad</span></div></div>
+                </article>
+                <article class="alm">
+                  <div class="alm-photo"><div class="ph ph-cool"></div></div>
+                  <div class="alm-body"><strong class="alm-name">Student Name</strong><p class="alm-uni">University Name</p><div class="alm-tags"><span>Cybersecurity</span><span>AP CS A</span></div></div>
+                </article>
+                <article class="alm">
+                  <div class="alm-photo"><div class="ph ph-blue"></div></div>
+                  <div class="alm-body"><strong class="alm-name">Student Name</strong><p class="alm-uni">University Name</p><div class="alm-tags"><span>Research</span><span>Internship</span></div></div>
+                </article>
+                <article class="alm">
+                  <div class="alm-photo"><div class="ph ph-warm"></div></div>
+                  <div class="alm-body"><strong class="alm-name">Student Name</strong><p class="alm-uni">University Name</p><div class="alm-tags"><span>Robotics</span><span>AP CS Principles</span></div></div>
+                </article>
+                <article class="alm">
+                  <div class="alm-photo"><div class="ph ph-mid"></div></div>
+                  <div class="alm-body"><strong class="alm-name">Student Name</strong><p class="alm-uni">University Name</p><div class="alm-tags"><span>AP CS A</span><span>Certification</span></div></div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <div class="alm-group">
+            <button class="alm-toggle" aria-expanded="false" aria-controls="class-2024">
+              <span class="alm-yr">Class of 2024</span>
+              <span class="alm-ct">8 graduates</span>
+              <svg class="alm-chev" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="alm-panel" id="class-2024" role="region" aria-label="Class of 2024">
+              <div class="alm-grid">
+                <article class="alm">
+                  <div class="alm-photo"><div class="ph ph-mid"></div></div>
+                  <div class="alm-body"><strong class="alm-name">Student Name</strong><p class="alm-uni">University Name</p><div class="alm-tags"><span>Math Olympiad</span><span>Research</span></div></div>
+                </article>
+                <article class="alm">
+                  <div class="alm-photo"><div class="ph ph-blue"></div></div>
+                  <div class="alm-body"><strong class="alm-name">Student Name</strong><p class="alm-uni">University Name</p><div class="alm-tags"><span>Coding Competitions</span><span>AP CS Principles</span></div></div>
+                </article>
+                <article class="alm">
+                  <div class="alm-photo"><div class="ph ph-cool"></div></div>
+                  <div class="alm-body"><strong class="alm-name">Student Name</strong><p class="alm-uni">University Name</p><div class="alm-tags"><span>App Development</span><span>Internship</span></div></div>
+                </article>
+                <article class="alm">
+                  <div class="alm-photo"><div class="ph ph-warm"></div></div>
+                  <div class="alm-body"><strong class="alm-name">Student Name</strong><p class="alm-uni">University Name</p><div class="alm-tags"><span>Cybersecurity</span><span>Coding Competitions</span></div></div>
+                </article>
+                <article class="alm">
+                  <div class="alm-photo"><div class="ph ph-blue"></div></div>
+                  <div class="alm-body"><strong class="alm-name">Student Name</strong><p class="alm-uni">University Name</p><div class="alm-tags"><span>Robotics</span><span>Certification</span></div></div>
+                </article>
+                <article class="alm">
+                  <div class="alm-photo"><div class="ph ph-mid"></div></div>
+                  <div class="alm-body"><strong class="alm-name">Student Name</strong><p class="alm-uni">University Name</p><div class="alm-tags"><span>AP CS A</span><span>Research</span></div></div>
+                </article>
+                <article class="alm">
+                  <div class="alm-photo"><div class="ph ph-warm"></div></div>
+                  <div class="alm-body"><strong class="alm-name">Student Name</strong><p class="alm-uni">University Name</p><div class="alm-tags"><span>Coding Competitions</span><span>Math Olympiad</span></div></div>
+                </article>
+                <article class="alm">
+                  <div class="alm-photo"><div class="ph ph-cool"></div></div>
+                  <div class="alm-body"><strong class="alm-name">Student Name</strong><p class="alm-uni">University Name</p><div class="alm-tags"><span>App Development</span><span>AP CS Principles</span></div></div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <div class="alm-group">
+            <button class="alm-toggle" aria-expanded="false" aria-controls="class-2023">
+              <span class="alm-yr">Class of 2023</span>
+              <span class="alm-ct">4 graduates</span>
+              <svg class="alm-chev" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="alm-panel" id="class-2023" role="region" aria-label="Class of 2023">
+              <div class="alm-grid">
+                <article class="alm">
+                  <div class="alm-photo"><div class="ph ph-blue"></div></div>
+                  <div class="alm-body"><strong class="alm-name">Student Name</strong><p class="alm-uni">University Name</p><div class="alm-tags"><span>Coding Competitions</span><span>AP CS A</span></div></div>
+                </article>
+                <article class="alm">
+                  <div class="alm-photo"><div class="ph ph-cool"></div></div>
+                  <div class="alm-body"><strong class="alm-name">Student Name</strong><p class="alm-uni">University Name</p><div class="alm-tags"><span>Research</span><span>Internship</span></div></div>
+                </article>
+                <article class="alm">
+                  <div class="alm-photo"><div class="ph ph-warm"></div></div>
+                  <div class="alm-body"><strong class="alm-name">Student Name</strong><p class="alm-uni">University Name</p><div class="alm-tags"><span>Robotics</span><span>Certification</span></div></div>
+                </article>
+                <article class="alm">
+                  <div class="alm-photo"><div class="ph ph-mid"></div></div>
+                  <div class="alm-body"><strong class="alm-name">Student Name</strong><p class="alm-uni">University Name</p><div class="alm-tags"><span>Math Olympiad</span><span>AP CS Principles</span></div></div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────
+         CONTACT / FINAL CTA
+    ───────────────────────────────────────── -->
+    <section class="contact" id="contact" aria-label="Contact and information request">
+      <div class="container contact-wrap">
+
+        <div class="contact-copy reveal">
+          <span class="eyebrow">Take the Next Step</span>
+          <h2>Help Your Student<br>Build More Than<br>Coding Skills</h2>
+          <p>Discover how STEMPIA helps students grow through programming, competitions, projects, and future-focused mentorship.</p>
+
+          <ul class="contact-bullets">
+            <li>Structured programs for middle and high school students</li>
+            <li>Competition preparation and academic support</li>
+            <li>Portfolio-building and certification outcomes</li>
+            <li>Personalized mentorship and progress tracking</li>
+          </ul>
+
+          <div class="contact-direct">
+            <!-- REPLACE: Real email and phone number -->
+            <p>Or reach us directly</p>
+            <a href="mailto:info@stempia.com">info@stempia.com</a>
+            <a href="tel:+10000000000">+1 (000) 000-0000</a>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap reveal r-delay-1">
+          <form id="contact-form" novalidate>
+            <h3>Request Information</h3>
+
+            <div class="form-row">
+              <div class="fg">
+                <label for="pname">Parent Name <abbr title="required" class="req">*</abbr></label>
+                <input id="pname" name="parent_name" type="text" placeholder="Your full name" required autocomplete="name" />
+              </div>
+              <div class="fg">
+                <label for="sname">Student Name <abbr title="required" class="req">*</abbr></label>
+                <input id="sname" name="student_name" type="text" placeholder="Student's name" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="fg">
+                <label for="grade">Grade <abbr title="required" class="req">*</abbr></label>
+                <select id="grade" name="grade" required>
+                  <option value="" disabled selected>Select grade</option>
+                  <option>6th Grade</option>
+                  <option>7th Grade</option>
+                  <option>8th Grade</option>
+                  <option>9th Grade</option>
+                  <option>10th Grade</option>
+                  <option>11th Grade</option>
+                  <option>12th Grade</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label for="interest">Area of Interest</label>
+                <select id="interest" name="interest">
+                  <option value="" disabled selected>Select interest</option>
+                  <option>Foundations</option>
+                  <option>Advanced Development</option>
+                  <option>AP Prep</option>
+                  <option>Credentials &amp; Enrichment</option>
+                  <option>Competition Prep</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="fg">
+                <label for="email">Email <abbr title="required" class="req">*</abbr></label>
+                <input id="email" name="email" type="email" placeholder="your@email.com" required autocomplete="email" />
+              </div>
+              <div class="fg">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" placeholder="(000) 000-0000" autocomplete="tel" />
+              </div>
+            </div>
+
+            <div class="fg">
+              <label for="msg">Message</label>
+              <textarea id="msg" name="message" rows="4" placeholder="Tell us about your student and what you're looking for…"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-blue btn-full">Request Information</button>
+            <p class="form-note">We respond within one business day. Your information is never shared.</p>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ─────────────────────────────────────────
+       FOOTER
+  ───────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <!-- REPLACE: Add real logo SVG or wordmark if available -->
+        <a href="#home" class="logo footer-logo" aria-label="STEMPIA Home">STEMPIA</a>
+        <p>Real programming skills. Real results. Real futures.</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#alumni">Alumni</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-contact">
+        <!-- REPLACE: Real contact information -->
+        <a href="mailto:info@stempia.com">info@stempia.com</a>
+        <a href="tel:+10000000000">+1 (000) 000-0000</a>
+      </div>
+
+    </div>
+    <div class="footer-bar">
+      <div class="container">
+        <!-- REPLACE: Update year or automate via JS -->
+        <p>&copy; 2024 STEMPIA Computer Institute. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
