@@ -2,7 +2,7 @@
    STEMPIA — script.js
    Handles: sticky header · mobile nav · scroll
             reveal · active nav link · stat
-            counters · success carousel · alumni & achievements accordions · form validation
+            counters · success carousel · alumni & achievements accordions · pathway AP sub-card · form validation
 ═══════════════════════════════════════════════ */
 
 (function () {
@@ -387,6 +387,7 @@
   bindDisclosureToggle('.alm-toggle', '.alm-group');
   bindDisclosureToggle('.ach-comp-toggle', '.ach-comp-group');
   bindDisclosureToggle('.ach-sub-toggle', '.ach-sub-group');
+  bindDisclosureToggle('.pg-subcard-toggle', '.pg-subcard');
 
 
   /* ─────────────────────────────────────────
