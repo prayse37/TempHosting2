@@ -51,6 +51,12 @@
   --gold-bg:      rgba(251,191,36,0.14);
   --silver-bg:    rgba(148,163,184,0.15);
 
+  /* Hero — crimson theme */
+  --hero-crimson:       #BA0F39;
+  --hero-crimson-hover: #9a0d32;
+  --hero-crimson-soft:  rgba(186, 15, 57, 0.22);
+  --hero-crimson-glow:  rgba(186, 15, 57, 0.38);
+
   /* Spacing rhythm */
   --sec:          clamp(80px, 10vw, 128px);   /* section vertical padding */
   --sec-head-mb:  clamp(48px, 6vw, 80px);     /* section header → content gap */
@@ -355,6 +361,30 @@ body {
 /* ─────────────────────────────────────────
    7. HERO
 ───────────────────────────────────────── */
+@keyframes hero-bg-drift {
+  0%, 100% {
+    background-position: 32% 22%;
+    background-size: 118% 118%;
+  }
+  50% {
+    background-position: 68% 58%;
+    background-size: 132% 132%;
+  }
+}
+
+@keyframes hero-orb-float-a {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.78; }
+  35% { transform: translate(-72px, 52px) scale(1.14); opacity: 0.95; }
+  70% { transform: translate(40px, -64px) scale(0.9); opacity: 0.68; }
+}
+
+@keyframes hero-orb-float-b {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.72; }
+  40% { transform: translate(64px, -56px) scale(1.12); opacity: 0.9; }
+  75% { transform: translate(-48px, 44px) scale(0.88); opacity: 0.62; }
+}
+
+/* Hero: crimson art — images/hero-bg-crimson.svg. Cool blue alt: images/hero-bg.svg + light-hero rules */
 .hero {
   position: relative;
   min-height: 100svh;
@@ -364,15 +394,15 @@ body {
   justify-content: center;
   overflow: hidden;
   padding-top: var(--hh);
-  background-color: var(--bg-tint);
-  /* Abstract future / vision / achievement art — replace images/hero-bg.svg if needed */
-  background-image: url('images/hero-bg.svg');
-  background-size: cover;
-  background-position: center top;
+  background-color: #100507;
+  background-image: url('images/hero-bg-crimson.svg');
+  background-size: 118% 118%;
+  background-position: 32% 22%;
   background-repeat: no-repeat;
+  animation: hero-bg-drift 18s ease-in-out infinite alternate;
 }
 
-/* Light wash so headline and proof strip stay readable over the graphic */
+/* Vignette + depth so type and proof strip read clearly on crimson art */
 .hero::before {
   content: '';
   position: absolute;
@@ -381,34 +411,37 @@ body {
   pointer-events: none;
   background: linear-gradient(
     165deg,
-    rgba(255,255,255,0.78) 0%,
-    rgba(255,255,255,0.42) 42%,
-    rgba(245,248,255,0.55) 68%,
-    rgba(255,255,255,0.72) 100%
+    rgba(8, 3, 5, 0.75) 0%,
+    rgba(186, 15, 57, 0.18) 38%,
+    rgba(12, 4, 7, 0.55) 62%,
+    rgba(5, 2, 4, 0.82) 100%
   );
 }
 
-/* Soft gradient orbs — layered under wash, slightly muted vs. art */
+/* Soft gradient orbs — crimson accent; stronger float + glow pulse */
 .orb {
   position: absolute;
   z-index: 0;
   border-radius: 50%;
   pointer-events: none;
-  opacity: 0.75;
+  will-change: transform, opacity;
 }
 .orb-1 {
   width: 700px;
   height: 700px;
   top: -160px;
   right: -160px;
-  background: radial-gradient(circle, rgba(29,78,216,0.055) 0%, transparent 68%);
+  background: radial-gradient(circle, var(--hero-crimson-soft) 0%, transparent 65%);
+  animation: hero-orb-float-a 14s ease-in-out infinite;
 }
 .orb-2 {
   width: 500px;
   height: 500px;
   bottom: -60px;
   left: -80px;
-  background: radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(244, 63, 94, 0.08) 0%, transparent 70%);
+  animation: hero-orb-float-b 17s ease-in-out infinite;
+  animation-delay: -4s;
 }
 
 /* Hero content */
@@ -420,7 +453,6 @@ body {
   align-items: center;
   padding-top: 64px;
   padding-bottom: 80px;
-  gap: 56px;
 }
 
 .hero-body {
@@ -433,14 +465,14 @@ body {
   font-weight: 900;
   letter-spacing: -0.045em;
   line-height: 1.02;
-  color: var(--ink);
+  color: var(--white);
   margin-bottom: 28px;
 }
 
-/* "Their Edge" — gradient italic */
+/* "Their Edge" — crimson gradient */
 .hero-body h1 em {
   font-style: normal;
-  background: linear-gradient(120deg, #1D4ED8 15%, #6366F1 85%);
+  background: linear-gradient(120deg, #BA0F39 10%, #F43F5E 55%, #FDA4AF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -448,10 +480,37 @@ body {
 
 .hero-sub {
   font-size: clamp(1rem, 1.6vw, 1.2rem);
-  color: var(--ink-3);
+  color: rgba(255, 255, 255, 0.78);
   line-height: 1.72;
   max-width: 560px;
   margin: 0 auto 40px;
+}
+
+/* Kicker + CTAs on crimson hero */
+.hero .kicker {
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(186, 15, 57, 0.22);
+  border-color: rgba(253, 164, 175, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.hero .btn-blue {
+  background: var(--hero-crimson);
+  color: var(--white);
+  box-shadow: 0 8px 32px var(--hero-crimson-glow);
+}
+.hero .btn-blue:hover {
+  background: var(--hero-crimson-hover);
+  box-shadow: 0 12px 40px var(--hero-crimson-glow);
+}
+.hero .btn-ghost {
+  color: rgba(255, 255, 255, 0.92);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+.hero .btn-ghost:hover {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .hero-btns {
@@ -460,53 +519,6 @@ body {
   justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
-}
-
-/* Proof strip — one row; items share width equally */
-.hero-proof {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--r-xl);
-  padding: 24px clamp(16px, 3vw, 36px);
-  box-shadow: var(--sh-md);
-  flex-wrap: nowrap;
-  width: 100%;
-  max-width: min(100%, 980px);
-}
-
-.proof-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  flex: 1 1 0;
-  min-width: 0;
-  padding: 0 clamp(6px, 1.5vw, 18px);
-  text-align: center;
-}
-.proof-item strong {
-  font-size: 1.6rem;
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  color: var(--ink);
-  line-height: 1;
-}
-.proof-item span {
-  font-size: clamp(0.62rem, 1.25vw, 0.75rem);
-  font-weight: 500;
-  color: var(--ink-4);
-  white-space: nowrap;
-}
-
-.proof-sep {
-  width: 1px;
-  height: 36px;
-  background: var(--border);
-  flex-shrink: 0;
 }
 
 
@@ -1981,6 +1993,15 @@ body {
     transform: none;
     transition: none;
   }
+  .hero {
+    animation: none;
+    background-size: cover;
+    background-position: center top;
+  }
+  .orb {
+    animation: none;
+    will-change: auto;
+  }
 }
 
 
@@ -2054,19 +2075,9 @@ body {
   .hero .container {
     padding-top: 40px;
     padding-bottom: 56px;
-    gap: 40px;
   }
   .hero-btns { flex-direction: column; align-items: center; }
   .hero-btns .btn { width: 100%; max-width: 320px; }
-
-  .hero-proof {
-    padding: 18px 12px;
-    gap: 0;
-    flex-wrap: nowrap;
-    max-width: 100%;
-  }
-  .proof-item { padding: 8px 4px; }
-  .proof-sep  { display: none; }
 
   /* Stats */
   .stats-row {
@@ -2145,8 +2156,6 @@ body {
     grid-auto-rows: 220px;
   }
   .gi-wide { grid-column: span 1; }
-
-  .hero-proof { border-radius: var(--r-lg); }
 
   /* Alumni — tighter cards */
   .alm-grid  { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 12px 14px 16px; }
