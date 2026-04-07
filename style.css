@@ -745,27 +745,262 @@ body {
   background: var(--bg-tint);
 }
 
-.pg-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+/* Curriculum band: momentum track + rising steps + connectors */
+.pg-curriculum {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2.5vw, 22px);
+  background: linear-gradient(165deg, var(--white) 0%, rgba(255, 241, 242, 0.72) 42%, rgba(255, 250, 235, 0.35) 100%);
+  border: 1px solid rgba(186, 15, 57, 0.14);
+  border-radius: var(--r-xl);
+  padding: clamp(22px, 4vw, 40px);
+  box-shadow: var(--sh-md), 0 0 0 1px rgba(255, 255, 255, 0.85) inset;
+  position: relative;
+  overflow: hidden;
+}
+
+.pg-curriculum::after {
+  content: '';
+  position: absolute;
+  inset: -40% -20% auto -20%;
+  height: 55%;
+  background: radial-gradient(ellipse 70% 80% at 50% 0%, rgba(186, 15, 57, 0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* Energy rail + milestone dots (builds toward gold “summit”) */
+.pg-momentum {
+  position: relative;
+  z-index: 1;
+  height: 40px;
+  margin: 0 clamp(4px, 2vw, 16px) 4px;
+  flex-shrink: 0;
+}
+
+.pg-momentum-rail {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  top: 50%;
+  height: 5px;
+  transform: translateY(-50%);
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    rgba(186, 15, 57, 0.18) 0%,
+    rgba(186, 15, 57, 0.45) 32%,
+    var(--hero-crimson) 68%,
+    var(--gold) 100%
+  );
+  box-shadow: 0 0 28px rgba(186, 15, 57, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.pg-momentum-nodes {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 5%;
+}
+
+.pg-momentum-node {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid rgba(186, 15, 57, 0.35);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  z-index: 1;
+  transition: transform 0.35s var(--ease-slow);
+}
+
+.pg-momentum-node:nth-child(2) {
+  border-color: rgba(186, 15, 57, 0.55);
+  width: 12px;
+  height: 12px;
+}
+.pg-momentum-node:nth-child(3) {
+  border-color: var(--hero-crimson);
+  width: 13px;
+  height: 13px;
+  box-shadow: 0 0 0 3px rgba(186, 15, 57, 0.12);
+}
+
+.pg-momentum-node--finale {
+  width: 17px;
+  height: 17px;
+  border: 2px solid var(--gold);
+  background: linear-gradient(145deg, #ffffff 0%, rgba(251, 191, 36, 0.42) 100%);
+  box-shadow:
+    0 0 0 4px rgba(217, 119, 6, 0.12),
+    0 6px 18px rgba(186, 15, 57, 0.18);
+}
+
+/* Step row / column */
+.pg-curriculum-steps {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+.pg-curriculum-steps .pg {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+}
+
+.pg-curriculum-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--hero-crimson);
+  padding: 14px 0 10px;
+}
+
+.pg-curriculum-arrow-line {
+  width: 2px;
+  height: 22px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, rgba(186, 15, 57, 0.2), var(--hero-crimson));
+}
+
+.pg-curriculum-arrow--a2 .pg-curriculum-arrow-line {
+  background: linear-gradient(180deg, rgba(186, 15, 57, 0.35), var(--hero-crimson));
+  box-shadow: 0 0 12px rgba(186, 15, 57, 0.15);
+}
+.pg-curriculum-arrow--a3 .pg-curriculum-arrow-line {
+  background: linear-gradient(180deg, var(--hero-crimson), rgba(217, 119, 6, 0.65));
+  width: 3px;
+}
+
+.pg-curriculum-arrow-head {
+  display: block;
+  margin-top: -1px;
+  transform: rotate(90deg);
+  filter: drop-shadow(0 1px 2px rgba(186, 15, 57, 0.2));
+}
+
+@media (min-width: 1100px) {
+  .pg-curriculum-steps {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 0;
+  }
+
+  .pg-curriculum-arrow {
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+    min-width: 44px;
+    max-width: 56px;
+    flex: 0 0 48px;
+    padding: 0 6px;
+    align-self: center;
+  }
+
+  .pg-curriculum-arrow-line {
+    flex: 1 1 auto;
+    width: auto;
+    height: 3px;
+    min-width: 6px;
+    background: linear-gradient(90deg, rgba(186, 15, 57, 0.15), rgba(186, 15, 57, 0.5), var(--hero-crimson));
+  }
+
+  .pg-curriculum-arrow--a2 .pg-curriculum-arrow-line {
+    height: 4px;
+    background: linear-gradient(90deg, rgba(186, 15, 57, 0.35), var(--hero-crimson));
+  }
+  .pg-curriculum-arrow--a3 .pg-curriculum-arrow-line {
+    height: 4px;
+    background: linear-gradient(90deg, var(--hero-crimson), rgba(217, 119, 6, 0.85));
+    box-shadow: 0 0 14px rgba(186, 15, 57, 0.22);
+  }
+
+  .pg-curriculum-arrow-head {
+    transform: none;
+    margin-top: 0;
+    flex-shrink: 0;
+  }
+
+  .pg-curriculum-steps .pg {
+    flex: 1 1 0;
+    width: auto;
+  }
+}
+
+/* Rising “staircase” + stronger presence each level (desktop) */
+.pg-curriculum .pg--s1 { --pg-rise: 0px; }
+.pg-curriculum .pg--s2 { --pg-rise: 0px; }
+.pg-curriculum .pg--s3 { --pg-rise: 0px; }
+.pg-curriculum .pg--s4 { --pg-rise: 0px; }
+
+@media (min-width: 1100px) {
+  .pg-curriculum .pg--s1 { --pg-rise: 16px; }
+  .pg-curriculum .pg--s2 { --pg-rise: 8px; }
+  .pg-curriculum .pg--s3 { --pg-rise: -2px; }
+  .pg-curriculum .pg--s4 { --pg-rise: -14px; }
 }
 
 .pg {
   position: relative;
   background: var(--white);
-  border-radius: var(--r-xl);
-  padding: 36px 28px 32px;
-  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px 22px 26px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   overflow: hidden;
-  transition: transform var(--ease-slow), box-shadow var(--ease-slow);
+  transition: transform var(--ease-slow), box-shadow var(--ease-slow), border-color var(--ease);
 }
-.pg:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--sh-lg);
+
+.pg-curriculum .pg {
+  transform: translateY(calc(-1 * var(--pg-rise, 0px)));
+}
+
+.pg-curriculum .pg--s1 {
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.05);
+}
+.pg-curriculum .pg--s2 {
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.06);
+  border-color: rgba(186, 15, 57, 0.08);
+}
+.pg-curriculum .pg--s3 {
+  box-shadow: 0 10px 32px rgba(186, 15, 57, 0.08);
+  border-color: rgba(186, 15, 57, 0.12);
+}
+.pg-curriculum .pg--s4 {
+  box-shadow:
+    0 14px 44px rgba(186, 15, 57, 0.14),
+    0 0 0 1px rgba(217, 119, 6, 0.22);
+  border-color: rgba(186, 15, 57, 0.16);
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 251, 240, 0.55) 100%);
+}
+
+.pg-curriculum .pg:hover {
+  transform: translateY(calc(-6px - var(--pg-rise, 0px)));
+  box-shadow: 0 16px 48px rgba(186, 15, 57, 0.12);
+  border-color: rgba(186, 15, 57, 0.22);
+}
+
+.pg-curriculum .pg--s4:hover {
+  box-shadow:
+    0 18px 52px rgba(186, 15, 57, 0.18),
+    0 0 0 1px rgba(217, 119, 6, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pg-curriculum .pg,
+  .pg-curriculum .pg:hover {
+    transform: none;
+  }
+  .pg-momentum-node { transition: none; }
 }
 
 /* Oversized number watermark */
@@ -776,24 +1011,57 @@ body {
   font-size: 4rem;
   font-weight: 900;
   letter-spacing: -0.06em;
-  color: rgba(0,0,0,0.035);
+  color: rgba(195, 27, 27, 0.185);
   line-height: 1;
   pointer-events: none;
   user-select: none;
 }
 
-.pg-popular {
-  display: inline-block;
+.pg-phase {
   font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-weight: 800;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--white);
-  background: var(--blue);
-  padding: 4px 12px;
-  border-radius: var(--r-pill);
-  margin-bottom: 4px;
-  width: fit-content;
+  color: var(--hero-crimson);
+  margin: 0 0 2px;
+  line-height: 1.3;
+}
+
+.pg--s4 .pg-phase {
+  color: #b45309;
+}
+
+/* Summit flag + label (step 4 — achievement / finish line) */
+.pg-summit {
+  position: absolute;
+  top: 14px;
+  left: 18px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--hero-crimson);
+  pointer-events: none;
+}
+
+.pg-summit-flag {
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 4px rgba(186, 15, 57, 0.15));
+}
+
+.pg-summit-label {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.pg--s4 {
+  padding-top: 44px;
+}
+
+.pg--s4 .pg-phase {
+  margin-top: 2px;
 }
 
 .pg h3 {
@@ -801,7 +1069,7 @@ body {
   font-weight: 800;
   color: var(--ink);
   line-height: 1.25;
-  margin-top: 2px;
+  margin-top: 0;
 }
 .pg p {
   font-size: 0.875rem;
@@ -821,17 +1089,7 @@ body {
 }
 .pg-link:hover { gap: 10px; color: var(--blue-hover); }
 
-/* Featured / dark card */
-.pg-dark {
-  background: var(--dark);
-  border-color: transparent;
-  box-shadow: var(--sh-lg);
-}
-.pg-dark .pg-num   { color: rgba(255,255,255,0.05); }
-.pg-dark h3        { color: var(--white); }
-.pg-dark p         { color: rgba(255,255,255,0.55); }
-.pg-dark .pg-link  { color: rgba(255,255,255,0.9); }
-.pg-dark .pg-link:hover { color: var(--white); }
+.pg p strong { color: var(--ink-2); font-weight: 700; }
 
 
 /* ─────────────────────────────────────────
@@ -2018,7 +2276,7 @@ body {
 @media (max-width: 1024px) {
   :root { --sec: clamp(64px, 8vw, 100px); }
 
-  .pg-grid   { grid-template-columns: repeat(2, 1fr); }
+  .pg-curriculum-arrow { min-width: 40px; flex-basis: 40px; }
   .cg-grid   { grid-template-columns: repeat(2, 1fr); }
   .aw-grid  { grid-template-columns: repeat(2, 1fr); }
   .alm-grid { grid-template-columns: repeat(3, 1fr); }
@@ -2097,7 +2355,8 @@ body {
   .sc-btn { width: 38px; height: 38px; }
 
   /* Programs */
-  .pg-grid { grid-template-columns: 1fr; }
+  .pg-curriculum { padding: 20px 18px; }
+  .pg-curriculum .pg { padding: 22px 18px 20px; }
 
   /* Competitions */
   .cg-grid { grid-template-columns: 1fr; }
