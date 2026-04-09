@@ -556,7 +556,7 @@ body {
   color: var(--white);
 }
 .stat p {
-  font-size: 0.82rem;
+  font-size: 0.66rem;
   font-weight: 500;
   color: rgba(255,255,255,0.45);
   margin-top: 10px;
@@ -1257,10 +1257,6 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
-
-/* Row 2 — 2 cards, centered */
-.tl-grid .tl:nth-child(4) { grid-column: 1 / span 1; }
-.tl-grid .tl:nth-child(5) { grid-column: 3 / span 1; }
 
 .tl {
   background: var(--bg-tint);
@@ -2384,8 +2380,6 @@ body {
   .alm-grid { grid-template-columns: repeat(3, 1fr); }
 
   .tl-grid { grid-template-columns: repeat(2, 1fr); }
-  .tl-grid .tl:nth-child(4) { grid-column: auto; }
-  .tl-grid .tl:nth-child(5) { grid-column: auto; }
 
   .contact-wrap { gap: 52px; }
 }
@@ -2489,8 +2483,6 @@ body {
 
   /* Testimonials */
   .tl-grid { grid-template-columns: 1fr; }
-  .tl-grid .tl:nth-child(4),
-  .tl-grid .tl:nth-child(5) { grid-column: auto; }
 
   /* Gallery */
   .gal-grid {
